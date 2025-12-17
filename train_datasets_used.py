@@ -48,6 +48,26 @@ def train(
         plots=True,
         exist_ok=True,
         amp=amp,
+        # ========== 激进数据增强策略 ==========
+        # 颜色空间增强
+        hsv_h=0.015,       # 色调变化 (默认 0.015)
+        hsv_s=0.7,        # 饱和度变化 (默认 0.7)
+        hsv_v=0.4,        # 亮度变化 (默认 0.4)
+        # 几何变换增强
+        degrees=15.0,     # 旋转角度 ±15° (默认 0.0)
+        translate=0.1,    # 平移比例 (默认 0.1)
+        scale=0.5,        # 缩放比例 (默认 0.5)
+        shear=5.0,        # 剪切角度 ±5° (默认 0.0)
+        perspective=0.0,  # 透视变换 (默认 0.0)
+        # 翻转增强
+        flipud=0.0,       # 上下翻转概率 (默认 0.0)
+        fliplr=0.5,       # 左右翻转概率 (默认 0.5)
+        # 高级增强
+        mosaic=1.0,       # Mosaic 增强 (默认 1.0)
+        mixup=0.05,        # MixUp 增强 (默认 0.0)
+        copy_paste=0.0,   # 复制粘贴增强 (默认 0.0)
+        erasing=0.5,      # 随机擦除概率 (默认 0.4)
+        # auto_augment="randaugment",  # 自动增强策略
     )
 
 
@@ -55,7 +75,7 @@ def main(argv: Optional[list[str]] = None) -> int:
     p = argparse.ArgumentParser()
     p.add_argument("--data", type=Path, default=Path("datasets_used_yolo/dataset.yaml"))
     # Note: repo root contains a small placeholder yolo11n.pt; prefer the larger one under ./ultralytics/
-    p.add_argument("--model", type=str, default="ultralytics/yolo11n.pt")
+    p.add_argument("--model", type=str, default="ultralytics/yolo11m.pt")
     p.add_argument("--epochs", type=int, default=100)
     p.add_argument("--imgsz", type=int, default=640)
     p.add_argument("--batch", type=int, default=16)
