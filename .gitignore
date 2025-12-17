@@ -1,2 +1,6 @@
 datasets_used_yolo/
 
+ultralytics/
+
+*.pt
+

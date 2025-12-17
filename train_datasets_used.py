@@ -76,9 +76,9 @@ def main(argv: Optional[list[str]] = None) -> int:
     p.add_argument("--data", type=Path, default=Path("datasets_used_yolo/dataset.yaml"))
     # Note: repo root contains a small placeholder yolo11n.pt; prefer the larger one under ./ultralytics/
     p.add_argument("--model", type=str, default="ultralytics/yolo11m.pt")
-    p.add_argument("--epochs", type=int, default=100)
+    p.add_argument("--epochs", type=int, default=200)
     p.add_argument("--imgsz", type=int, default=640)
-    p.add_argument("--batch", type=int, default=16)
+    p.add_argument("--batch", type=int, default=32)
     p.add_argument("--device", type=str, default="0", help="'0' for GPU0, 'cpu' for CPU")
     p.add_argument("--project", type=str, default="runs/detect")
     p.add_argument("--name", type=str, default="datasets_used_train")
