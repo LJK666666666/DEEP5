@@ -1,8 +1,8 @@
 task: detect
 mode: train
-model: ultralytics/yolo11s.pt
+model: runs/detect/datasets_used_train/weights/last.pt
 data: datasets_used_yolo/dataset.yaml
-epochs: 200
+epochs: 20
 time: null
 patience: 100
 batch: 32
